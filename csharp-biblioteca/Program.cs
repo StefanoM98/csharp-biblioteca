@@ -23,20 +23,28 @@
 
             while (true)
             {
-                Console.WriteLine("What do you have to do? s = search document");
+                Console.WriteLine("What do you have to do? |s = search document | exit = close window");
                 string choice = Console.ReadLine();
                 if (choice == "s" ||  choice == "S" ) 
                 {
                     Console.WriteLine("Find the document that u need: ");
+
                     string title = Console.ReadLine();
+
                     Document doc = library.FindByTitle(title);
+
                     if (doc != null)
                     {
-                        Console.WriteLine($"Here is your document: {doc.title}");
+                        Console.WriteLine($"Here is your document: {doc.title}, you can find it in the shelf: {doc.position}");
                     } else
                     {
                         Console.WriteLine($"We haven't this document :(");
                     }
+
+                }
+                else if(choice == "exit" || choice == "e") 
+                {
+                    break;
                 }
             }
         }
