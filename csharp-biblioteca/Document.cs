@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace csharp_biblioteca
 {
-    public class Document
+    public class Document : Library
     {
         public string identificationCode { get; private set; }
         public string title { get; private set; }
@@ -16,7 +16,7 @@ namespace csharp_biblioteca
         public string author { get; private set; }  
 
 
-        public Document(string Title, string Year, string Type, string Position, string Author)
+        public Document(string Title, string Year, string Type, string Position, string Author) : base ()
         {
             Random rndcode = new Random();
             this.identificationCode = title + rndcode.Next(0, 9999);

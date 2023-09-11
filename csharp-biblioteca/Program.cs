@@ -12,16 +12,32 @@
             Console.WriteLine("Below you will find some of the documents in our library");
             Console.WriteLine();
 
-            Book LeCronacheDiNarnia = new Book("Le Cronache Di Narnia", "04-11-2014", "Fantasy", "Books-B16", "C. S. Lewis", 841);
-            Dvd SuperMarioBros = new Dvd("Super Mario Bros - Il Film", "22-06-2023", "Animation", "Dvds-D324", "Nintendo", 1.32);
+            Book LeCronacheDiNarnia = new Book("Narnia", "04-11-2014", "Fantasy", "Books-B16", "C. S. Lewis", 841);
+            Dvd SuperMarioBros = new Dvd("Super Mario", "22-06-2023", "Animation", "Dvds-D324", "Nintendo", 1.32);
 
-            List<Document> NewDocument = new List<Document>();
-            NewDocument.Add(LeCronacheDiNarnia);
-            NewDocument.Add(SuperMarioBros);
+            Library library = new Library();
 
-            foreach (Document document in NewDocument)
+            library.AddDocumentInLibrary(LeCronacheDiNarnia);
+            library.AddDocumentInLibrary(SuperMarioBros);
+
+
+            while (true)
             {
-                document.PrintInfo();
+                Console.WriteLine("What do you have to do? s = search document");
+                string choice = Console.ReadLine();
+                if (choice == "s" ||  choice == "S" ) 
+                {
+                    Console.WriteLine("Find the document that u need: ");
+                    string title = Console.ReadLine();
+                    Document doc = library.FindByTitle(title);
+                    if (doc != null)
+                    {
+                        Console.WriteLine($"Here is your document: {doc.title}");
+                    } else
+                    {
+                        Console.WriteLine($"We haven't this document :(");
+                    }
+                }
             }
         }
     }
