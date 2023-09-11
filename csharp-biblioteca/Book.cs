@@ -10,9 +10,16 @@ namespace csharp_biblioteca
     {
 
         public int pages { get; private set; }
-        public Book(int Pages, string Title, int Year, string Sector, string Position, string Author) : base(Title, Year, Sector, Position, Author)
+        public Book(string Title, string Year, string Type, string Position, string Author, int Pages) : base(Title, Year, Type, Position, Author)
         {
             this.pages = Pages;
+            
+        }
+
+        public override void PrintInfo()
+        {
+            base.PrintInfo();
+            Console.WriteLine($@"                                 -Pages: {this.pages}");
         }
     }
 }

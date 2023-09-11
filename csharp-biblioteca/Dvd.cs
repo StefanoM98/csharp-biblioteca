@@ -9,11 +9,16 @@ namespace csharp_biblioteca
     public class Dvd : Document
     {
         public double duration { get; private set; }
-        public Dvd(double Duration, string Title, int Year, string Sector, string Position, string Author) : base(Title, Year, Sector, Position, Author)
+        public Dvd(string Title, string Year, string Type, string Position, string Author, double Duration) : base(Title, Year, Type, Position, Author)
         {
             this.duration = Duration;
         }
 
+        public override void PrintInfo()
+        {
+            base.PrintInfo();
+            Console.WriteLine($@"                                 -Duration: {this.duration}");
+        }
 
     }
 }

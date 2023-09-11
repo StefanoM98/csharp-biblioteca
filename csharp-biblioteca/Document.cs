@@ -10,22 +10,32 @@ namespace csharp_biblioteca
     {
         public string identificationCode { get; private set; }
         public string title { get; private set; }
-        public int year { get; private set; }
-        public string sector { get; private set; }
+        public string year { get; private set; }
+        public string type { get; private set; }
         public string position { get; set; }
         public string author { get; private set; }  
 
 
-        public Document(string Title, int Year, string Sector, string Position, string Author)
+        public Document(string Title, string Year, string Type, string Position, string Author)
         {
             Random rndcode = new Random();
             this.identificationCode = title + rndcode.Next(0, 9999);
-            this.title = title;
-            this.year = year;
-            this.sector = sector;
-            this.position = position;
-            this.author = author;
+            this.title = Title;
+            this.year = Year;
+            this.type = Type;
+            this.position = Position;
+            this.author = Author;
         }
+
+        public virtual void PrintInfo()
+        {
+            Console.WriteLine($@"Document {this.identificationCode}:
+                                 -Title: {this.title}
+                                 -Author: {this.author}
+                                 -Release date: {this.year}
+                                 -Genre: {this.type}
+                                 -Position: {this.position}");
+        } 
 
     }
 }
