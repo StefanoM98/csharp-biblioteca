@@ -54,5 +54,17 @@ namespace csharp_biblioteca
             }
             return null;
         }
+
+        public Document FindByCode(string code)
+        {
+            foreach (Document document in Documents)
+            {
+                if (document.identificationCode == code)
+                {
+                    return document;
+                }
+            }
+            return null;
+        }
     }
 }

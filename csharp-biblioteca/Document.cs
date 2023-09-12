@@ -19,7 +19,7 @@ namespace csharp_biblioteca
         public Document(string Title, string Year, string Type, string Position, string Author) : base ()
         {
             Random rndcode = new Random();
-            this.identificationCode = title + rndcode.Next(0, 9999);
+            this.identificationCode = title + rndcode.Next(0, 10);
             this.title = Title;
             this.year = Year;
             this.type = Type;
